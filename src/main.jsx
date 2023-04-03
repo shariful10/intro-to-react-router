@@ -12,21 +12,6 @@ import FriendDetails from "./FriendDetails/FriendDetails";
 import Posts from "./components/Posts/Posts";
 import PostDetails from "./PostDetails/PostDetails";
 
-// const router = createBrowserRouter([
-// 	{
-// 		path: "/",
-// 		element: <App />,
-// 	},
-// 	{
-// 		path: "/about",
-// 		element: <About></About>
-// 	},
-// 	{
-// 		path: "/contact",
-// 		element: <Contact></Contact>
-// 	},
-// ]);
-
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -53,15 +38,16 @@ const router = createBrowserRouter([
 			{
 				path: "posts",
 				element: <Posts />,
-				loader: () => fetch("https://jsonplaceholder.typicode.com/posts"),
+				loader: () =>
+					fetch("https://jsonplaceholder.typicode.com/posts"),
 			},
 			{
 				path: "post/:postId",
-                element: <PostDetails />,
-                loader: ({ params }) =>
-                    fetch(
-                        `https://jsonplaceholder.typicode.com/posts/${params.postId}`
-                    ),
+				element: <PostDetails />,
+				loader: ({ params }) =>
+					fetch(
+						`https://jsonplaceholder.typicode.com/posts/${params.postId}`
+					),
 			},
 			{
 				path: "about",
@@ -73,8 +59,12 @@ const router = createBrowserRouter([
 			},
 			{
 				path: "*",
-                element: <h1>404 <br /> Not Found</h1>
-			}
+				element: (
+					<h1 className="notFound">
+						404 <br /> Not Found
+					</h1>
+				),
+			},
 		],
 	},
 ]);
