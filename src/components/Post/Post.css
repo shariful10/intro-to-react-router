@@ -1,0 +1,14 @@
+.post {
+	margin: 10px;
+	padding: 10px;
+	border-radius: 10px;
+	background-color: mediumspringgreen;
+}
+
+button:hover {
+	border: 0;
+}
+
+button:focus {
+	outline: none;
+}
